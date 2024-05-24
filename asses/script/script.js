@@ -4,15 +4,14 @@ let btnLeft = document.getElementById('btnLeft')
 let btnRight = document.getElementById('btnRight')
 let bullet = document.getElementById('bullet')
 let flag = 0
-let _status = ''
 let _point
 let _liCircle
+
 //onload
 myFunc()
 
 //width of _slider
 _silder.style.width = (_img.length) * 500 + 'px'
-
 
 //creat li
 _img.forEach(val => {
@@ -20,8 +19,8 @@ _img.forEach(val => {
     bullet.appendChild(_point)
     _point.classList.add('_li')
     _liCircle = document.querySelectorAll('._li')
+    _liCircle[0].style.background = 'black'
 })
-
 
 //li  style
 _liCircle.forEach((val, index) => {
@@ -45,7 +44,6 @@ _liCircle.forEach((val, index) => {
     })
 })
 
-
 //right btn
 btnRight.addEventListener('click', () => {
     flag = flag - 500
@@ -60,7 +58,6 @@ btnRight.addEventListener('click', () => {
             element.style.background = 'grey'
         }
     })
-
 })
 
 //right btn
@@ -79,12 +76,9 @@ btnLeft.addEventListener('click', () => {
     })
 })
 
-
-
-
 //arrow setting
 function myFunc() {
-    if (flag == -2000) {
+    if (flag == -(_img.length-1) * 500) {
         btnRight.style.right = -5000 + '%'
     } else {
         btnRight.style.right = 5 + '%'
